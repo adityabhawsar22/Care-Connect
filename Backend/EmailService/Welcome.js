@@ -14,11 +14,7 @@ const sendWelcomeEmail = async (fullname, staffID, password, email) => {
         to: email,
         subject: "Welcome to Care Connect",
         html: data,
-        // attachments: [
-        //   {
-        //     path: attachmentPath,
-        //   },
-        // ],
+       
       };
 
       try {

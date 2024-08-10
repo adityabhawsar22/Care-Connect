@@ -1,7 +1,8 @@
+import React ,{ Suspense, lazy } from "react";
 import Sidebar from "./components/sidebar/Sidebar";
 import Topbar from "./components/topbar/Topbar";
 import "./App.css";
-import Home from "./pages/home/Home";
+// import Home from "./pages/home/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
@@ -16,6 +17,8 @@ import NewClient from "./pages/newClient/newClient";
 import Announcement from "./pages/announcement/Announcement";
 import IncidentList from "./pages/incidenceList/IncidentList";
 import Incident from "./pages/incident/Incident";
+const Home =lazy(()=>import("./pages/home/Home"));
+
 function App() {
   const user = JSON.parse(localStorage.getItem("staff"));
 
@@ -33,7 +36,9 @@ function App() {
               <Sidebar />
 
               <Route exact path="/home">
-                <Home />
+                {/* <Home />
+                 */}
+                 <Suspense fallback= {<h1>Loading</h1>}><Home/></Suspense>
               </Route>
               <Route path="/users">
                 <UserList />
