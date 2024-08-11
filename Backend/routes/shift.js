@@ -181,6 +181,7 @@ router.put("/clockout/:id", async (req, res) => {
       res.status(500).json({ message: "Clock out failed" });
     }
   } catch (error) {
+    
     res.status(500).json("Something went wrong");
   }
 });
